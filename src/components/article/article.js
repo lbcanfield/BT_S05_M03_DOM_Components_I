@@ -110,6 +110,13 @@ function articleMaker(articleObj) {
      articleDate.classList.add('date');
      articleExpandBtn.classList.add('expandButton');
 
+     articleTitle.textContent = articleObj.title;
+     articleDate.textContent = articleObj.date;
+     articleParaOne.textContent = articleObj.firstParagraph;
+     articleParaTwo.textContent = articleObj.secondParagraph;
+     articleParaThree.textContent = articleObj.thirdParagraph;
+     articleExpandBtn.textContent = '+';
+
      articleContainer.appendChild(articleTitle);
      articleContainer.appendChild(articleDate);
      articleContainer.appendChild(articleParaOne);
@@ -141,6 +148,14 @@ function articleMaker(articleObj) {
 
   Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
   to create a div.article element and append it to the DOM inside div.articles (see index.html).
+*/
+
+data.forEach(articleObj => {
+     document.querySelector('div.articles').appendChild(articleMaker(articleObj));
+})
+
+/*
+
 
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
